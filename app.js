@@ -14,10 +14,17 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Simulate finding the video and display the result
+        // Simulate generating a downloadable link
+        const fakeDownloadLink = `https://example.com/download?video=${encodeURIComponent(videoUrl)}`;
+
+        // Display the downloadable link
         videoDisplay.innerHTML = `
-            <h3>Video Found!</h3>
-            <p>Video URL: <a href="${videoUrl}" target="_blank">${videoUrl}</a></p>
+            <h3>Download Ready!</h3>
+            <p>
+                <a href="${fakeDownloadLink}" target="_blank" download>
+                    Click here to download the video
+                </a>
+            </p>
         `;
         videoDisplay.style.display = "block";
     });
