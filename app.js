@@ -16,16 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Call the RapidAPI YouTube downloader API
-            const response = await fetch('https://youtube-media-downloader.p.rapidapi.com/v2/video/details', {
-                method: 'POST',
+            const response = await fetch('https://youtube-video-fast-downloader-24-7.p.rapidapi.com/video', {
+                method: 'GET',
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
                     'X-RapidAPI-Key': '28aef0606amsh3885c4eb9415d39p140278jsn7eba9dfaa0e2',
-                    'X-RapidAPI-Host': 'youtube-media-downloader.p.rapidapi.com'
+                    'X-RapidAPI-Host': 'youtube-video-fast-downloader-24-7.p.rapidapi.com'
                 },
-                body: new URLSearchParams({
+                params: {
                     url: videoUrl
-                })
+                }
             });
 
             if (!response.ok) {
@@ -35,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
 
             // Extract the download link from the API response
-            const downloadLink = data.formats[0].url; // Adjust based on the API's response structure
+            const downloadLink = data.video[0].url; // Adjust based on the API's response structure
 
             // Display the downloadable link
             videoDisplay.innerHTML = `
